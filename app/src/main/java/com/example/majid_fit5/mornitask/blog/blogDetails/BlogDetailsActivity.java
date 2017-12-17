@@ -48,15 +48,17 @@ public class BlogDetailsActivity extends AppCompatActivity implements BlogDetail
         mWvBlogDetails = findViewById(R.id.wv_blog_details);
         //the key should be taken from constants
         mBlogID = getIntent().getExtras().getInt("KEY_OBJECT_ID");
+        //Sets whether the WebView should use its built-in zoom mechanisms.
         mWvBlogDetails.getSettings().setBuiltInZoomControls(true);
+        //Enable javaScript, in this activity we need to enable javaScript for videos
         mWvBlogDetails.getSettings().setJavaScriptEnabled(true);
+        //handle back button in the toolbar
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
         });
-
     }
 
     @Override
@@ -66,6 +68,8 @@ public class BlogDetailsActivity extends AppCompatActivity implements BlogDetail
         mPresenter.getBlogDetails(mBlogID);
     }
 
+    /*this method used in "getBlogDetails" method that located in "BlogDetailsPresenter" class to show
+    progressDialog during download webView content*/
     @Override
     public void showLoading() {
         //taken as is it from NewMorniKSA
@@ -78,6 +82,7 @@ public class BlogDetailsActivity extends AppCompatActivity implements BlogDetail
         }
     }
 
+    //to hide progressDialog after WebView Content downloaded successfully
     @Override
     public void hideLoading() {
         if (mProgressDialog != null){
@@ -85,24 +90,16 @@ public class BlogDetailsActivity extends AppCompatActivity implements BlogDetail
         }
     }
 
+    //display html content in the webView, will called by "onGetBlogDetails" that located in the presenter
     @Override
     public void onGetBlogDetails(Blog blog) {
         //to display "html" content
         mWvBlogDetails.loadData(blog.body,"text/html; charset=UTF-8",null);
-
     }
 
+    //show the error in a snackBar
     @Override
     public void showBlogDetailsError(MorniError morniError) {
         Snackbar.make(mWvBlogDetails, "BIG ERROR", Snackbar.LENGTH_INDEFINITE).show();
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 }

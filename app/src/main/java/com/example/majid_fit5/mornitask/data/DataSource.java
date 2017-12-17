@@ -18,13 +18,13 @@ public interface DataSource {
     interface GetBlogsCallBack extends BaseCallBack{
         void onGetBlogs(List<Blog> blogs);
     }
-    //Real implement for this method will found in RemoteDataSource Class
+    //Real implement for this method will found in RemoteDataSource Class, because all blog data located in the server
     void getBlogs(String url, GetBlogsCallBack callBack);
 
     interface GetBlogDetailsCallBack extends BaseCallBack{
         void onGetBlogDetails(Blog blog);
     }
 
-    //Real implement for this method will found in RemoteDataSource Class
+    //Real implement for this method will found in RemoteDataSource Class, because all blog data located in the server
     void getBlogDetails(String url, GetBlogDetailsCallBack callBack);
 }

@@ -24,9 +24,13 @@
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
     <WebView
+        android:layout_marginTop="56dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:id="@+id/wv_blog_details"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"></WebView>
+        ></WebView>
 
 </android.support.constraint.ConstraintLayout>

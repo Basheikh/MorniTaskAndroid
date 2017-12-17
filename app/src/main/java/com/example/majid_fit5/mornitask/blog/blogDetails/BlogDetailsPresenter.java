@@ -21,11 +21,13 @@ public class BlogDetailsPresenter implements BlogDetailsContract.Presenter {
         this.mDataRepository = mDataRepository;
     }
 
+    //this method bind the view to the presenter as a weak Reference
     @Override
     public void onBind(@NonNull BlogDetailsContract.View view) {
         mBlogDetailsView = new WeakReference<BlogDetailsContract.View>(view);
     }
 
+    //clear the view
     @Override
     public void onDestroy() {
         if (mBlogDetailsView.get() != null){
@@ -33,12 +35,14 @@ public class BlogDetailsPresenter implements BlogDetailsContract.Presenter {
         }
     }
 
+    //get the blog content by providing "BlogID"
     @Override
     public void getBlogDetails(int blogID) {
         if (mBlogDetailsView !=null)
             mBlogDetailsView.get().showLoading();
         String url = "http://blog.sandbox.morniksa.com/posts/" +blogID;
         mDataRepository.getBlogDetails(url, new DataSource.GetBlogDetailsCallBack() {
+            //this method will called after the content downloaded
             @Override
             public void onGetBlogDetails(Blog blog) {
                 if (mBlogDetailsView != null){
@@ -46,7 +50,7 @@ public class BlogDetailsPresenter implements BlogDetailsContract.Presenter {
                     mBlogDetailsView.get().onGetBlogDetails(blog);
                 }
             }
-
+            //this method will called in download Failure case
             @Override
             public void onFailure(MorniError error) {
                 if (mBlogDetailsView != null){

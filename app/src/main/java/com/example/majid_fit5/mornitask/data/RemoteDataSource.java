@@ -82,7 +82,7 @@ public class RemoteDataSource implements DataSource {
         });
     }
 
-    // Mohammed Part
+    //Real implement for "getBlogDetails" in the DataSource
     @Override
     public void getBlogDetails(String url, final GetBlogDetailsCallBack callBack) {
         Call<Blog> call = mEndpoints.getBlogDetails(url);
