@@ -22,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 // Singleton class that responsible on firing retrofit calls.
 public class RemoteDataSource implements DataSource {
-    private static String BASE_URL = "https://www.morniksa.com/api/";
+    private static String BASE_URL = "https://sandbox.morniksa.com/api/v2/";//"https://www.morniksa.com/api/"
     private ApiEndPoints mEndpoints;
     private static RemoteDataSource INSTANCE = null;
 
@@ -33,37 +33,25 @@ public class RemoteDataSource implements DataSource {
     }
 
     private RemoteDataSource() {
-
-        if (BuildConfig.FLAVOR.equalsIgnoreCase("dev")) {
-            Log.e("Flavor", "debug");
-            BASE_URL = "https://sandbox.morniksa.com/api/v2/";
-        } else {
-            BASE_URL = "https://www.morniksa.com/api/v2/";
-        }
-
+        // Creating clientBuilder
         OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
         clientBuilder.readTimeout(30, TimeUnit.SECONDS);
         clientBuilder.connectTimeout(30, TimeUnit.SECONDS);
 
-        if (BuildConfig.DEBUG) {
-            HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-            clientBuilder.addInterceptor(interceptor);
-        }
+        //json
+        Gson gson = new GsonBuilder().setExclusionStrategies(new ExclusionStrategy() {
+            @Override
+            public boolean shouldSkipField(FieldAttributes f) {
+                return false;
+            }
+            @Override
+            public boolean shouldSkipClass(Class<?> clazz) {
+                return false;
+            }
+        }).create();
 
         // creating the client to use in Retrofit instance.
         OkHttpClient client = clientBuilder.build();
-        Gson gson = new GsonBuilder().setExclusionStrategies(new ExclusionStrategy() {
-                    @Override
-                    public boolean shouldSkipField(FieldAttributes f) {
-                        return false;
-                    }
-
-                    @Override
-                    public boolean shouldSkipClass(Class<?> clazz) {
-                        return false;
-                    }
-                }).create();
 
         // Retrofit instantiation
         Retrofit retrofit = new Retrofit.Builder()
@@ -74,6 +62,7 @@ public class RemoteDataSource implements DataSource {
         mEndpoints = retrofit.create(ApiEndPoints.class);
     }
 
+    // My Part
     @Override
     public void getBlogs(String url, final GetBlogsCallBack callBack) {
         Call<List<Blog>> call= mEndpoints.getBlogs(url);
@@ -89,11 +78,11 @@ public class RemoteDataSource implements DataSource {
             @Override
             public void onFailure(Call<List<Blog>> call, Throwable t) {
                 callBack.onFailure(getError(4077));
-
             }
         });
     }
 
+    // Mohammed Part
     @Override
     public void getBlogDetails(String url, final GetBlogDetailsCallBack callBack) {
         Call<Blog> call = mEndpoints.getBlogDetails(url);
@@ -101,13 +90,11 @@ public class RemoteDataSource implements DataSource {
             @Override
             public void onResponse(Call<Blog> call, Response<Blog> response) {
                 if (response.isSuccessful()){
-                    callBack.onGetBlogDetails(response.body());
-                }
+                    callBack.onGetBlogDetails(response.body());}
                 else {
                     callBack.onFailure(getError(response.code()));
                 }
             }
-
             @Override
             public void onFailure(Call<Blog> call, Throwable t) {
                 //Below line should take the throwable "t"
@@ -115,7 +102,6 @@ public class RemoteDataSource implements DataSource {
             }
         });
     }
-
     private MorniError getError(int errCode) {
         return new MorniError(errCode, "MORRNI ERROR");
     }

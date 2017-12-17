@@ -15,12 +15,12 @@ import java.util.List;
 public interface BlogListContract {
 
     // view of the contract
-    interface View extends BaseView{
+    interface View extends BaseView {
         void onGetBlogs(List<Blog> blogs);
         void showBlogsError(MorniError error);
     }
     // presenter of the contract
-    interface Presenter extends BasePresenter<BlogListContract.View>{
+    interface Presenter extends BasePresenter<View> {
         //Here is the main function of this sub-feature
         void getBlogs(int pageID);
     }
