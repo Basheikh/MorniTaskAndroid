@@ -33,31 +33,10 @@ public class RemoteDataSource implements DataSource {
     }
 
     private RemoteDataSource() {
-        // Creating clientBuilder
-        OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
-        clientBuilder.readTimeout(30, TimeUnit.SECONDS);
-        clientBuilder.connectTimeout(30, TimeUnit.SECONDS);
-
-        //json
-        Gson gson = new GsonBuilder().setExclusionStrategies(new ExclusionStrategy() {
-            @Override
-            public boolean shouldSkipField(FieldAttributes f) {
-                return false;
-            }
-            @Override
-            public boolean shouldSkipClass(Class<?> clazz) {
-                return false;
-            }
-        }).create();
-
-        // creating the client to use in Retrofit instance.
-        OkHttpClient client = clientBuilder.build();
-
         // Retrofit instantiation
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .client(client)
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
         mEndpoints = retrofit.create(ApiEndPoints.class);
     }

@@ -61,7 +61,6 @@ public class BlogListView extends AppCompatActivity implements BlogListContract.
                     intent.putExtras(bundle);
                     startActivity(intent);
                 }
-
             }
         });
         mRcvBlogs.setAdapter(mAdapter);
