@@ -64,6 +64,7 @@
                 android:layout_marginStart="@dimen/dim_10_dp"
                 android:layout_marginEnd="@dimen/dim_10_dp"
                 android:layout_gravity="end"
+                android:textColor="#ffffff"
                 android:text="More"
                 android:layout_marginTop="@dimen/dim_5_dp"
                 android:layout_marginBottom="@dimen/dim_10_dp"
