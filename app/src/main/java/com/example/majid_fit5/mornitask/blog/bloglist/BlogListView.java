@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.majid_fit5.mornitask.R;
@@ -13,6 +14,8 @@ import com.example.majid_fit5.mornitask.base.recyclerView.RecyclerEndlessScrollL
 import com.example.majid_fit5.mornitask.blog.blogDetails.BlogDetailsActivity;
 import com.example.majid_fit5.mornitask.data.models.MorniError;
 import com.example.majid_fit5.mornitask.data.models.blog.Blog;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
