@@ -13,6 +13,7 @@ import com.example.majid_fit5.mornitask.base.recyclerView.RecyclerEndlessScrollL
 import com.example.majid_fit5.mornitask.blog.blogDetails.BlogDetailsActivity;
 import com.example.majid_fit5.mornitask.data.models.MorniError;
 import com.example.majid_fit5.mornitask.data.models.blog.Blog;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,7 @@ public class BlogListView extends AppCompatActivity implements BlogListContract.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+        FirebaseMessaging.getInstance().subscribeToTopic("news");
     }
     private void init() {
         //presenter initiation..

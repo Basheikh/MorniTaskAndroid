@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "26247448355",
+    "firebase_url": "https://mornitask.firebaseio.com",
+    "project_id": "mornitask",
+    "storage_bucket": "mornitask.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26247448355:android:c04e60ae9a8155f2",
+        "android_client_info": {
+          "package_name": "com.example.majid_fit5.mornitask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "26247448355-2gjjonlh7qbahhq5ejqr9q7hnth6r9e2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.majid_fit5.mornitask",
+            "certificate_hash": "d454abb427538aec5b9e854fbea6d7155ef989e0"
+          }
+        },
+        {
+          "client_id": "26247448355-bs211c0rl3db3i1acv4b8hjn86tn9fac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx4RUekNkLZfUkPqbmh1sY3h3vzJ88rX8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "26247448355-bs211c0rl3db3i1acv4b8hjn86tn9fac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

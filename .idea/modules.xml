@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://D:\project\MorniTaskAndroid\MorniTask.iml" filepath="D:\project\MorniTaskAndroid\MorniTask.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MorniTaskAndroid.iml" filepath="$PROJECT_DIR$/MorniTaskAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MorniTaskAndroid.iml" filepath="$PROJECT_DIR$/.idea/MorniTaskAndroid.iml" />
       <module fileurl="file://E:\MORNI\MorniTask\MorniTask\.idea\MorniTaskAndroid.iml" filepath="E:\MORNI\MorniTask\MorniTask\.idea\MorniTaskAndroid.iml" />
+      <module fileurl="file://C:\Users\BASH\AndroidStudioProjects\MorniTaskAndroid\MorniTaskAndroid.iml" filepath="C:\Users\BASH\AndroidStudioProjects\MorniTaskAndroid\MorniTaskAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
