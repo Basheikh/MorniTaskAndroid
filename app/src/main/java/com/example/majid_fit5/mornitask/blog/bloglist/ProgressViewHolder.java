@@ -1,4 +1,4 @@
-package com.example.majid_fit5.mornitask.base;
+package com.example.majid_fit5.mornitask.blog.bloglist;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

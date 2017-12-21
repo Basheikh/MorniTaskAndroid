@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.majid_fit5.mornitask.R;
-import com.example.majid_fit5.mornitask.base.ProgressViewHolder;
 import com.example.majid_fit5.mornitask.data.models.blog.Blog;
 
 import java.util.List;
@@ -105,7 +104,6 @@ public class BlogAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             mTxtDate = itemView.findViewById(R.id.txt_item_blog_date);
             mTxtDesc = itemView.findViewById(R.id.txt_item_blog_smallDesc);
             mBtnMore = itemView.findViewById(R.id.btn_item_blog_more);
-
             // add listener to VIEW except BUTTON
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

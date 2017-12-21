@@ -28,8 +28,7 @@
 
         <!-- For firebase registering token -->
         <service
-            android:name=".blog.notifications.FirebaseIDService"
-            android:exported="true">
+            android:name=".blog.notifications.FirebaseIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
